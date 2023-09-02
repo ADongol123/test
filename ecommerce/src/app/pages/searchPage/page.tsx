@@ -12,12 +12,12 @@ const SearchPage = () => {
   const [filteredData, setFilteredData] = React.useState<any>([]);
   const [buttonTrigger, setButtonTrigger] = React.useState(false)
   console.log(filteredData, data, "filter")
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: any) => {
     setSearchQuery(event.target.value);
   };
 
   const handleSearchClick = () => {
-    const filtered = data?.filter((details) =>
+    const filtered = data?.filter((details: any) =>
       details?.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
     setFilteredData(filtered);
@@ -48,7 +48,7 @@ const SearchPage = () => {
         </div>
         <div className='flex gap-4 flex-wrap items-center justify-center my-10'>
           {buttonTrigger ?
-            filteredData?.map((details) => (
+            filteredData?.map((details: any) => (
               <div
                 key={details?.id}
                 onClick={() => router.push(`/pages/detailPage/${details?.id}`)}
@@ -59,7 +59,7 @@ const SearchPage = () => {
                   price={details?.price}
                 />
               </div>
-            )) : data?.map((details) => (
+            )) : data?.map((details: any) => (
               <div
                 key={details?.id}
                 onClick={() => router.push(`/pages/detailPage/${details?.id}`)}
